@@ -14,7 +14,7 @@ def findPairs(numNeeded):
     for num in inputList:
         numExtra = numNeeded - num
         if numExtra < 0:
-            next
+            continue 
 
         print('For the number {0}, the number needed is {1} to add up to {2}' .format(num, numExtra, numNeeded))
 

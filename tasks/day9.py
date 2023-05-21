@@ -1,3 +1,6 @@
+from opcode import hasjabs
+
+
 puzzleInput = r"D:\adventOfCode2020\inputLists\day9Input.txt"
 
 def start():

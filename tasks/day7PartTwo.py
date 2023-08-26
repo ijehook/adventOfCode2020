@@ -41,7 +41,6 @@ for rule in bagRules:
     if bagWithinDict:
         bagDictionary[dictKey] = bagWithinDict
 
-
 def countContainingBag(bagType = ""):
     bagsContainingType = []
     for bag in bagDictionary:
@@ -57,6 +56,7 @@ bagset = set()
 countContainingBag("shinygold")
 print("Part 1: The amount of different coloured bags that can hold a shiny gold bag: " + str(len(bagset)))
 
+#print(bagDictionary)
 
 #print(bagDictionary)
 
@@ -66,8 +66,6 @@ def bagsInBag(bagType):
     bagContents = bagDictionary[bagType]
     bagsList = []
     for bag in bagContents:
-        #print(bag)
-        #bagsInBag(bag)
         for i in range(bagDictionary[bagType][bag]):
             bagsList.append(bag)
     
@@ -83,4 +81,13 @@ def findB(bagType):
 findB("shinygold")
 print(len(bagsWithin))
 
+def countBagsWithin(bagColor):
+    count = 0
+    for bag in bagDictionary[bagColor]:
+        count += bagDictionary[bagColor][bag] + countBagsWithin(bag) * bagDictionary[bagColor][bag]
+    return count
 
+print(countBagsWithin(bagColor="shinygold"))
+
+for bag in bagDictionary:
+    print(bag)

@@ -1,0 +1,25 @@
+========= For PC
+How to go to D drive:
+
+d:
+cd D:\adventOfCode2020
+
+
+To push the current branch and set the remote as upstream, use
+
+    git push --set-upstream origin master
+
+
+you can use
+
+git fetch --set-upstream origin master
+git pull --set-upstream origin master
+
+========= For Laptop
+
+first add your files in the Git Changes box (use plus button, should see it in the staged changes)
+then commit (use up button) this commits it locally
+then push
+
+
+for pulling, first fetch in the same box, then pull

@@ -4,6 +4,10 @@
     "\\inputLists",
     "\\tasks"
   ],
+<<<<<<< HEAD
   "SelectedNode": "\\tasks\\day10.py",
+=======
+  "SelectedNode": "\\tasks\\day17_scratch.py",
+>>>>>>> 29e0b5e62ed64807411be846e1772db6c62019f2
   "PreviewInSolutionExplorer": false
 }

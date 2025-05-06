@@ -1,6 +1,9 @@
 
 # puzzleInput = r"D:\adventOfCode2020\inputLists\day10InputSmall.txt"
 
+from itertools import count
+
+
 puzzleInput = r"C:\Users\asyaa\source\repos\adventOfCode2020\inputLists\day10Input.txt"
 
 def start():
@@ -17,14 +20,13 @@ def start():
 rules = [1, 2, 3]
 puzzleInputList = [float(x) for x in set(sorted(start()))]
 counterList = []
-print("TESTING")
-
+countDict={0.0:1}
 
 class TreeNode(object):
     """ tree node class """
     def __init__(self, root, parent):
     
-        self.rootNode = root
+        self.rootNode = float(root)
         self.children = []
         self.parent = parent
 
@@ -32,21 +34,25 @@ class TreeNode(object):
         options = [root + rule for rule in rules]
         self.children = [child for child in puzzleInputList if child in options]
 
-        if puzzleInputList[-1] in self.children:
+        print("{0} has {1} options: {2}" .format(self.rootNode, len(self.children),self.children))
+        # countDict[str(root)]=len(self.children)
+        if self.rootNode == 0:
+            return
+        countDict[self.rootNode]= countDict.get(self.rootNode -1, 0) + countDict.get(self.rootNode -2, 0) + countDict.get(self.rootNode -3, 0)
+        print("countDict[{0}] : {1}" .format(self.rootNode,countDict[self.rootNode] ))
+        #if puzzleInputList[-1] in self.children:
+        if self.rootNode == puzzleInputList[-1]:
             print("!!! The last node has been added.")
             counterList.append(1)
             print("Count is {0}" .format(len(counterList)))
+            
 
     def get(self):
         print("{0} ---> {1} --> {2}" .format(self.parent, self.rootNode, self.children))
 
 def buildTree():
     # build the python tree
-    startNode = TreeNode(root = 0, parent = 0)
-    
-    print("startNode = {0}" .format(startNode))
-    print("startNode.children = {0}" .format(startNode.children))
-    print("startNode.rootNode = {0}" .format(startNode.rootNode))
+    startNode = TreeNode(root = 0.0, parent = 0)
 
     getTree(startNode)
     
@@ -55,9 +61,13 @@ def buildTree():
 def getTree(treeNode):
    
     for child in treeNode.children:
+        print("looking at node {0}" .format(child))
         newNode = TreeNode(child, treeNode.rootNode)
+     
+        if counterList:
+           return
+           #pass
         getTree(newNode)
-
 
 def run():
     """ 
@@ -66,7 +76,13 @@ def run():
 
     buildTree()
     print("==== Final ")
-    print(len(counterList))
+
+    for x in countDict:
+        #print(x + ":" + countDict[x])
+        pass
+    print(countDict[float(puzzleInputList[-1])])
+
+        
     
 
    
@@ -80,3 +96,7 @@ run()
 
 # recursive 
 
+
+# part 2
+# find how many steps it takes to get from one number to the next
+#

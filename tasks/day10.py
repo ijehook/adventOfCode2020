@@ -1,6 +1,6 @@
 
 # puzzleInput = r"D:\adventOfCode2020\inputLists\day10Input.txt"
-puzzleInput = r"C:\Users\asyaa\source\repos\adventOfCode2020\inputLists\day10Input.txt"
+puzzleInput = r"C:\Users\asyaa\source\repos\adventOfCode2020\inputLists\day10InputSmall.txt"
 
 def start():
     # open up input list
